@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+
+  <br>
+ 
+  <body class="container">
+
+    <section>
+
+    <button id="complimentButton">Get a compliment</button>
+
+    <button id="fortuneButton">Get a Fortune</button>
+
+    <button id="motivationButton">Get Motivation</button>
+
+
+    
+
+      <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Encouragement</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="https://www.ted.com/talks/bevy_smith_how_to_discover_your_authentic_self_at_any_age" target=”_blank”>Find Yourself</a>
+          <a href="https://www.betterhelp.com/" target="_blank">Find Therapy</a>
+          <a href="https://www.freecodecamp.org/news/alternative-career-paths/" target="_blank">Hot Markets</a> 
+          
+
+        </div>
+      </div>
+    
+    </section>
+  
+    
+<br>
+<br>
+
+<main>
+
+    <form>
+
+      <h4>Welcome to your goal keeper!</h4>
+
+			Add Your Goals Below:
+			<input type="text" id="title" placeholder="what's your goal?">
+
+			<br>
+      <br>
+
+			<input type="submit" id="submitBtn">
+
+		</form>
+
+    <div class="boxed">
+      
+      <section id="goals-container"></section>
+
+    </div>
+
+</main>
+    
+
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
