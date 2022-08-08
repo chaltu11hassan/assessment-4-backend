@@ -1,138 +1,157 @@
-const goalsContainer = document.querySelector('#goals-container')
-const form = document.querySelector('form')
-
-const baseURL = `http://localhost:4000/api/goals`
-
-const goalsCallback = ({ data: goals }) => displayGoals(goals)
-const errCallback = err => console.log(err.res.data)
+/////////////////////////////Home-Page///////////////////
 
 
-const getAllGoals = () => axios.get(baseURL).then(goalsCallback).catch(errCallback)
+const destinationsContainer = document.querySelector('#destinations-container')
 
-const createGoal = body => axios.post(baseURL, body).then(goalsCallback).catch(errCallback)
+const destinationForm = document.querySelector('#destinations-form')
+
+const date = document.querySelector('#date');
+
+const baseURL = `http://localhost:4000/api/destinations`
+
+const destinationsCallback = ({ data: destinations }) => displayDestinations(destinations);
+
+const errCallback = err => console.log(err);
+
+const getAllDestinations = () => axios.get(baseURL).then(destinationsCallback).catch(errCallback);
+
+const createDestination = body => axios.post(baseURL, body).then(destinationsCallback).catch(errCallback);
 
 
-const deleteGoal = id => axios.delete(`${baseURL}/${id}`).then(goalsCallback).catch(errCallback)
+const deleteDestination = id => axios.delete(`${baseURL}/${id}`).then(destinationsCallback).catch(errCallback);
 
-const updateGoal = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(goalsCallback).catch(errCallback)
+const updateDestination = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(destinationsCallback).catch(errCallback);
 
 
-function submitHandler(event) {
+function submitDestination(event) {
     event.preventDefault()
 
     let title = document.querySelector('#title')
    
+    let freshDate = date.value
+    // console.log(date.value.split('-'))
+    freshDate= freshDate.split('-')
+    
+        let year = freshDate.shift()
+        freshDate.push(year)
+       freshDate = freshDate.join('-')
+        console.log(freshDate)
 
     let bodyObj = {
         title: title.value,
+        detail: detail.value,
+        date: freshDate,
+        imageURL: imageURL.value
     }
 
-    createGoal(bodyObj)
-
+    createDestination(bodyObj)
+    
     title.value = ''
+    detail.value = ''
+    date.value = ''
+    imageURL.value = ''
 }
+    function createDestinationCard(destination){
+            const destinationCard = document.createElement('div')
+            destinationCard.classList.add('destination-card')
 
-    function createGoalCard(goal) {
-        const goalCard = document.createElement('div')
-        goalCard.classList.add('goal-card')
-    
-        goalCard.innerHTML = `<p class="goal-title">${goal.title}</p>
-        <div class="btns-container"></div>
-        <button onclick="deleteGoal(${goal.id})">delete</button>`
-       
-        goalsContainer.appendChild(goalCard);
-    }
+            destinationCard.innerHTML = `<br>
+            <p class="destination-title">${destination.title}</p>
+            <br>
+            <p class="destination-date"> ${destination.date}</p>
+            <br>
+            <img src="${destination.imageURL}" alt="${destination.title}" class="card-image">
+            <br>
+            <p class="destination-detail"> ${destination.detail} </p>
+            <br>
+           
+            <div class="btns-container"></div>
+            <button onclick="deleteDestination(${destination.id})">delete</button>`
+           
+            destinationsContainer.appendChild(destinationCard);
+            
+     }
 
-    function displayGoals(arr) {
-        goalsContainer.innerHTML = ``
+    function displayDestinations(arr) {
+        destinationsContainer.innerHTML = ``
         for (let i = 0; i < arr.length; i++) {
-            createGoalCard(arr[i])
+            createDestinationCard(arr[i])
         }
     }
-
     
-    form.addEventListener('submit', submitHandler)
+
+    destinationForm?.addEventListener("submit", submitDestination)
     
-    // getAllGoals();
+    destinationsContainer && getAllDestinations();
 
 
+/////////////////////////////////Future-Destinations-Page//////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////
+const countriesBaseURL = `http://localhost:4000/api/countries`
 
+const countriesCallback = ({ data: countries}) => displayCountries(countries);
 
+const getAllCountries = () => axios.get(countriesBaseURL).then(countriesCallback).catch(errCallback)
 
-const complimentBtn = document.getElementById("complimentButton")
+const deleteCountry = id => axios.delete(`${countriesBaseURL}/${id}`).then(countriesCallback).catch(errCallback)
 
-const getCompliment = () => {
-    axios.get("http://localhost:4000/api/compliment/")
-        .then(res => {
-            const data = res.data;
-            alert(data);
-    });
-};
+const wishlistContainer = document.querySelector('#wishlist-container')
 
-complimentBtn.addEventListener('click', getCompliment);
+const wishlistForm = document.querySelector('#wishlist-form')
 
-
-////////////////////////////////////////////////////////////////////////////////////
-
-const fortuneBtn = document.getElementById("fortuneButton");
-
-const getFortune = () =>{
-    axios.get("http://localhost:4000/api/fortune/").then(res => {
-        const data = res.data;
-        alert(data);
-    });
-
-};
-
-fortuneBtn.addEventListener('click', getFortune);
+let countrySelect = document.querySelector('#countries-select')
 
 
-////////////////////////////////////////////////////////////////////////////////////
-
-const motivationBtn = document.getElementById('motivationButton');
-
-const getMotivation = ()=>{
-    axios.get("http://localhost:4000/api/motivation/").then(res => {
-        const data = res.data;
-        alert(data);
-    });
+function submitCountry(event) {
+    event.preventDefault()
+    
+    addToWishlist(countrySelect.value)
 }
 
-motivationBtn.addEventListener('click', getMotivation);
+function displayCountries(countries){
+    wishlistContainer.innerHTML = ''
+    countries.forEach((country) => {
+        // let countryElement = document.createElement('p')
+        // countryElement.textContent = country.title;
+        // wishlistContainer.appendChild(countryElement);
 
+    let countryCard = document.createElement('div')
+    countryCard.classList.add('country-card')
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-
+    countryCard.innerHTML = `<p class="country-title">${country.title}</p> 
+     <div id="deleteWishlistBtn"></div>
+    <button onclick="deleteCountry(${country.id})" id="delete-country">delete</button>`
+   
+    wishlistContainer.appendChild(countryCard);
     
+    })
+
+}
 
 
+wishlistForm?.addEventListener("submit", submitCountry);
 
 
+function addToWishlist(country){
+    axios.post('http://localhost:4000/api/countries', {country}).then(res => {
+    displayCountries(res.data)
+
+    })
+}
 
 
+wishlistContainer && getAllCountries();
+
+////////////////////////logOut-Button(Redirect to log in page)///////////////////////////////
+const logOutBtn = document.querySelector('#log-out');
+
+function userLogOut(e){
+    e.preventDefault()
+    localStorage.clear()
+    window.location = "./login.html"
+}
+
+logOutBtn.addEventListener('click', userLogOut);
 
 
 

@@ -1,54 +1,84 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-section{
-text-align: center;
+    
 }
 
-#complimentButton{
-    background-color: #1d1717;
-    width: 150px;
+.navs-head{
+    /* position: fixed; */
+    border-bottom: 2px solid rgb(251, 250, 249);
+    /* z-index: 900; */
+    /* width: 100%; */
     height: 50px;
-    color: blanchedalmond;
-    border: none;
-    margin: 5px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #f2ebeb;
+    background: #060606f1;
+    /* top: 0; */
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;  
+    
 }
 
-#fortuneButton{
-    background-color: #1d1717;
-    width: 150px;
-    height: 50px;
-    color: blanchedalmond;
-    border: none;
-    margin: 5px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #f2ebeb;
+
+nav {
+    text-align: center;
+    justify-content: space-evenly;
+    
 }
 
-#motivationButton{
-    background-color: #1d1717;
-    width: 150px;
-    height: 50px;
-    color: blanchedalmond;
-    border: none;
-    margin: 5px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #f2ebeb;
+ol {
+	padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    /* display:inline-block;
+    float:left; 
+    /* border:1px black solid; */
+    padding-left:12px;
+    padding-right:12px;
+    height:50px; 
+    
+
 }
 
-body {
-    background-color: #fbf9f5;
-    background: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/monstera-deliciosa-farida-nurieva.jpg) no-repeat center center fixed;
+.crumb {
+	margin-right: 2em;
+	display: inline;
+    align-items: center;
+    text-align: center;
+    /* position: relative; top: 25px; */
+    vertical-align:middle;
+
+}
+
+a {
+	color: rgb(225, 240, 210);
+    text-decoration:double;
+    /* border: solid rgb(134, 160, 123); */
+    border-radius: 5px;
+    padding: 5px;
+    
+}
+
+a:visited {
+	color: wheat;
+    vertical-align: middle;
+}
+
+
+.body {
+    /* background-color: black; */
+    /* background: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/monstera-deliciosa-farida-nurieva.jpg) no-repeat center center fixed; */
+    /* background: url(https://static.vecteezy.com/system/resources/previews/001/928/226/large_2x/monstera-leaves-on-dark-background-free-photo.jpg) no-repeat center center fixed; */
+    /* background: url(https://wallpaperaccess.com/full/5858736.jpg) no-repeat center center fixed; */
+    /* background: url(https://i.pinimg.com/474x/48/95/5f/48955f0d5bc7b7cc34efb330d3843135.jpg) no-repeat center center fixed; */
+    /* background: url(https://i.pinimg.com/originals/54/01/1b/54011b26ddcf7c46f80321e86bd89f9d.jpg) no-repeat center center fixed; */
+    background: url(https://i.pinimg.com/originals/29/66/55/2966550f9180c64f5b821fc1c5e57913.jpg) no-repeat center center fixed;
     background-size: cover;
-    height: 100%;
-    overflow: hidden;
+
 }
 
 h4 {
@@ -56,19 +86,17 @@ h4 {
     display: flex; 
     justify-content: center; 
     align-items: center;
-    color: rgb(245, 243, 240);
+    color: rgb(5, 4, 3);
 }
 
-main {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
 
-form {
-    width: 400px;
-    height: 350px;
-    background-color: rgb(28, 59, 27);
+#destinations-form {
+    width: 450px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.756);
+    /* background-color:rgb(250, 247, 244); */
+    /* background: url(https://images.unsplash.com/photo-1639443444549-a8d7b05b14b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJyb3duJTIwYWVzdGhldGljfGVufDB8fDB8fA%3D%3D&w=1000&q=80);  */
+    font-size: large;
     position: relative;
     display: flex; 
     flex-direction: column;
@@ -76,8 +104,8 @@ form {
     align-items: center;
     margin: 40px;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #eefafa;
+    border: 2px solid black;
+    /* border: 4px solid rgb(2, 2, 2); */
     /* text-decoration-color: #eefafa; */
 }
 
@@ -86,7 +114,7 @@ form {
 }
 
 
-#submitBtn{
+#submit-destination{
     background-color: #1d1717;
     width: 75px;
     height: 25px;
@@ -95,40 +123,44 @@ form {
     margin: 5px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #f2ebeb;
+    border-color: rgb(194, 203, 169);
 }
 
-input[type='text'] {
+input[type='text']{
     width: 85%;
     height: 30px;
     border-style: solid;
     border-color: #040404;
     border-radius: 5px;
-    color: #060606;
-    background-color: rgb(250, 252, 252);
-  
+    color: #010101;
+    /* background-color: rgb(118, 151, 119); */
+    background-color: rgb(194, 203, 169);
 }
 
+#date{
+    background-color: rgb(194, 203, 169);
+    color: black;
+}
 
-#goals-container {
-   
+#destinations-container {
+    padding: 5px;
+    margin-top:80px;
+    max-width: 750px;
+    height: 650px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-wrap:wrap;
     justify-content: center;
-    color: #e4e3de;
-    align-items: center;
-    border-style:solid;
-    border-radius: 5px;
-    border-color: #040303;
-    
+    border: 2px solid black;
+    border-radius: 10px;
+   background-color: rgba(194, 203, 169, 0.473);
+   overflow:scroll;
+
+   display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+
 }
 
-.boxed{
-    background-color: #d8e9dc;
-    align-items: center;
-}
 
 button {
     background-color: #232323;
@@ -137,71 +169,250 @@ button {
     color: blanchedalmond;
     border-radius: 5px;
     border-style: solid;
-    border-color: #f2ebeb;
+    border-color: rgb(194, 203, 169);
     margin: 5px;
 }
 
-.goal-card {
-    background-color: rgb(28, 59, 27);
-    width: 200px;
-    margin: 20px; 
+.destination-card{
+
+    background-color: rgba(255, 255, 255, 0.966);
+    padding: 10px;
+    width: 280px;
+    height: 280px;
+    margin: 10px; 
+    display:flex;
+    color: #020202;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: 2px solid black;
+    overflow: scroll;
+}
+
+.card-image{
+    width:85%;
+    border-style: solid;
+    border-radius: 5px;
+    
+}
+
+.main-all{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;  
+}
+
+#top-div{
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    margin: -1px;
+   
+}
+
+#search-box{
+border: solid rgb(247, 243, 243);
+border-radius: 5px;
+
+}
+
+#searchbox-input{
+    width:250px;
+    height: 33px;
+    color: black;
+    text-align: center;
+   
+    
+}
+/*************************Future-Destinations-Page******************************/
+
+
+#submit-countries{
+    background-color: #1d1717;
+    width: 75px;
+    height: 25px;
+    color:blanchedalmond;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(194, 203, 169);
+}
+
+#wishlist-form{
+    margin: 100px;
+    width: 450px;
+    height: 300px; 
+    background-color: rgba(255, 255, 255, 0.696);
+    /* background-color:rgb(250, 247, 244); */
+    font-size: large;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly; 
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid rgb(2, 2, 2);
+}
+
+input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: rgb(194, 203, 169);
+  }
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+select {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgb(194, 203, 169);
+  }
+  
+#wishlist-container{
+    background-color: rgba(255, 255, 255, 0.668);
+    border-radius: 5px;
+    border: 2px solid black;
+    max-width: 300px;
+    height: 400px;
+    overflow-y: scroll;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.country-card{
+    background-color:rgb(194, 203, 169);
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 250px;
+    height: 60px;
+    margin: 5px;
+    padding:1px;
+    justify-content: center;
+}
+
+#delete-country{
+    border-color:white;
+}
+
+/* ///////////////////////////////Resources-Page//////////////////////////////////////////// */
+
+#resources-info{
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    height: 290px;
+    width: 500px;
+    background-color: white;
+    border: solid black;
+    border-radius: 15px;
+    align-items: center;
+   
+    
+
+}
+
+#rinks{
+    color: rgb(67, 121, 87);
+    vertical-align: middle;
+}
+
+h3{
+    text-align: center;
+}
+
+#resource-container{
+    background-color: rgba(194, 203, 169, 0.434);
+    border-radius: 15px;
+    border: solid black;
+    
+   
+}
+
+#flight{
+    width:100px;
+    height: 100px;
+}
+
+
+
+  /*///////////////////////////////////Login-Page/////////////////////////////////////*/
+  
+
+
+#login-body{
+
+    background: url(https://i.pinimg.com/originals/29/66/55/2966550f9180c64f5b821fc1c5e57913.jpg) no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 32px;
+    margin: 15px;
+}
+
+#index-main {
+    flex-direction: column;
+    align-items: center;
+}
+
+#log-forms {
+    height: 570px;
+    width: 650px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    justify-content: space-evenly;
+} 
 
+
+.form-style {
+    background-color: rgba(255, 255, 255, 0.434);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+    height: 250px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form label {
+    font-weight: 600;
+}
+
+.base {
+    margin: 10px;
+    width: 200px;
+}
+
+.submit {
+    background-color: black;
+    border: 2px solid rgb(194, 203, 169);
+    border-radius: 5px;
 }
 
 
 
-/* Dropdown Button */
-.dropbtn {
-    background-color: #1d1717;
-    width: 150px;
-    height: 50px;
-    color: blanchedalmond;
-    border: none;
-    margin: 5px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #f2ebeb;
 
-  }
 
-  
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd}
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;}
